@@ -6,7 +6,6 @@ define('WC_API_URL', 'https://menupich.ir/cafeuka/wp-json/wc/v3/');
 define('WC_CONSUMER_KEY', 'ck_19ec91648997cd153940a05c64ad150d0f23efa8');
 define('WC_CONSUMER_SECRET', 'cs_834f98b5eb55de0ed47b8ba22c1aa587b2845878');
 
-
 $data = json_decode(file_get_contents('php://input'), true);
 
 file_put_contents('log.txt', json_encode($data) . PHP_EOL, FILE_APPEND);
@@ -59,16 +58,11 @@ $photo = $data['message']['photo'][array_key_last($data['message']['photo'])]['f
 $callback_data = $data['callback_query']['data'] ?? null;
 $user_id = $data['message']['from']['id'] ?? $data['callback_query']['from']['id'];
 
-$admin_id = 123456789; // آی‌دی مدیر
+// حذف محدودیت دسترسی به مدیر
 
 // ذخیره‌سازی داده در فایل برای هر کاربر
 $state_file = __DIR__ . "/state_$chat_id.json";
 $s = file_exists($state_file) ? json_decode(file_get_contents($state_file), true) : [];
-
-if ($user_id != $admin_id) {
-    sendMessage($chat_id, "⛔ فقط مدیر مجاز به استفاده از این ربات است.");
-    exit;
-}
 
 if ($callback_data) {
     if ($callback_data == 'add_cat') {
