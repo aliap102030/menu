@@ -99,7 +99,6 @@ if (isset($data['message'])) {
 }
 
 if (!$chat_id) {
-    // شناسه چت پیدا نشد، پایان اجرا
     exit;
 }
 
@@ -198,28 +197,4 @@ if ($message) {
 
         case 'image':
             if (!$photo) {
-                sendMessage($chat_id, "❌ لطفاً یک عکس ارسال کنید.");
-                exit;
-            }
-            $file = json_decode(file_get_contents(API_URL . "getFile?file_id=$photo"), true);
-            if (!isset($file['result']['file_path'])) {
-                sendMessage($chat_id, "❌ خطا در دریافت عکس.");
-                exit;
-            }
-            $file_path = $file['result']['file_path'];
-            $img_url = "https://api.telegram.org/file/bot" . BOT_TOKEN . "/$file_path";
-            $s['product']['images'] = [['src' => $img_url]];
-            $s['step'] = 'category';
-            $keyboard = getCategoriesKeyboard();
-            sendMessage($chat_id, "📂 لطفاً یک دسته‌بندی انتخاب کنید:", $keyboard, true);
-            break;
-
-        case 'category':
-        case 'complete_product':
-        default:
-            // اگر مرحله نامشخص یا کامل بود و پیام اضافی است، می‌توان پیام مناسبی ارسال کرد
-            sendMessage($chat_id, "لطفاً از دکمه‌ها استفاده کنید یا /start را بزنید برای شروع مجدد.");
-            break;
-    }
-    file_put_contents($state_file, json_encode($s));
-}
+                sendMessage($chat_id, "❌ لطفاً
