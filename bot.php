@@ -1,6 +1,6 @@
 <?php
 
-define('BOT_TOKEN', '7985953791:AAGdrU3CStzlGFmzbLWJ0n_baAKWrY184vk');
+define('BOT_TOKEN', '7738809600:AAHKcmFvr2F24lhWJiNgm7sLNiCPLQ8YNC8');
 define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN . '/');
 define('WC_API_URL', 'https://menupich.ir/cafeuka/wp-json/wc/v3/');
 define('WC_CONSUMER_KEY', 'ck_19ec91648997cd153940a05c64ad150d0f23efa8');
