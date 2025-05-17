@@ -1,7 +1,6 @@
 services:
   - type: web
-    name: telegram-bot
+    name: telegram-woocommerce-bot
     env: docker
     plan: free
     dockerfilePath: ./Dockerfile
-    autoDeploy: true
