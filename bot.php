@@ -1,11 +1,11 @@
 <?php
 
-define('BOT_TOKEN', '7705971596:AAGRyrMWcxv2wPOsktnROmCQZtPUEnYTjzk');
+define('BOT_TOKEN', '7985953791:AAGdrU3CStzlGFmzbLWJ0n_baAKWrY184vk');
 define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN . '/');
-
 define('WC_API_URL', 'https://menupich.ir/cafeuka/wp-json/wc/v3/');
-define('WC_CONSUMER_KEY', 'ck_9ed28a5ae14da3c40a468501c9d4799fe3b6b448');
-define('WC_CONSUMER_SECRET', 'cs_76b6067fe9ba83a5360edcf0777e2c376f6bacef');
+define('WC_CONSUMER_KEY', 'ck_19ec91648997cd153940a05c64ad150d0f23efa8');
+define('WC_CONSUMER_SECRET', 'cs_834f98b5eb55de0ed47b8ba22c1aa587b2845878');
+
 
 $data = json_decode(file_get_contents('php://input'), true);
 
