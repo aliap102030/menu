@@ -1,14 +1,13 @@
 FROM php:8.2-cli
 
-# نصب curl و unzip و سایر نیازمندی‌ها
-RUN apt-get update && apt-get install -y \
-    curl \
-    unzip \
-    git \
-    libzip-dev \
-    && docker-php-ext-install zip
+# نصب curl برای درخواست‌های HTTP
+RUN apt-get update && apt-get install -y libcurl4-openssl-dev curl zip unzip
 
+# تنظیم پوشه کاری
 WORKDIR /app
-COPY . /app
 
-CMD ["php", "-S", "0.0.0.0:80", "bot.php"]
+# کپی کل پروژه به داخل کانتینر
+COPY . .
+
+# اجرای فایل PHP به صورت وب‌سرور
+CMD ["php", "-S", "0.0.0.0:10000", "bot.php"]
